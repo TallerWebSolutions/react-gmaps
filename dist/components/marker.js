@@ -25,6 +25,11 @@ var Marker = React.createClass({
     this.unbindEvents();
   },
 
+  componentDidUpdate: function componentDidUpdate() {
+    var latlng = new google.maps.LatLng(this.props.lat, this.props.lng);
+    this.marker.setPosition(latlng);
+  },
+
   bindEvents: function bindEvents() {
     for (var prop in this.props) {
       if (this.props.hasOwnProperty(prop) && Events[prop]) {
